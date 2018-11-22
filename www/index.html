@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    window.fn = {};
+    window.fn.open = function() {
+      var menu = document.getElementById('menu');
+      menu.open();
+    };
+    window.fn.load = function(page) {
+      var content = document.getElementById('content');
+      var menu = document.getElementById('menu');
+      content
+        .load(page)
+        .then(menu.close.bind(menu));
+    };
+
+  </script>
+  <script src="js/stack.js"></script>
+  <script src="js/main.js"></script>
+  </head>
+<body>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="fn.load('stack.html')" tappable>
+            スタック
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('queue.html')" tappable>
+            キュー
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('circle_queue.html')" tappable>
+            円環キュー
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="stack.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <ons-template id="stack.html">
+    <ons-page id="stack_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          スタック
+        </div>
+      </ons-toolbar>
+      <div class="input_area">
+          <ons-input id="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-button id="input_button" class="button">IN</ons-button>
+          <ons-button id="output_button" class="button">OUT</ons-button>
+      </div>
+      <ons-list id="stack_list">
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+          <ons-list-item><span class="stack_item"></span></ons-list-item>
+      </ons-list>
+   </ons-page>
+  </ons-template>
+
+</body>
+</html>

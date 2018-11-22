@@ -1,0 +1,27 @@
+#stack_page #stack_list ons-list-item:nth-child(odd) {
+    background-color: lightblue;
+
+}
+
+#stack_page #stack_list ons-list-item:nth-child(even) {
+    background-color: azure;
+
+}
+
+#stack_page .input_area {
+    padding: 14px;
+    text-align: center;
+}
+
+#stack_page .input_area {
+    padding: 14px;
+    text-align: center;
+}
+
+#stack_page .input_area .text {
+    width: 160px;
+}
+
+#stack_page .input_area .button {
+    width: 56px;
+}
