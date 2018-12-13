@@ -1,28 +1,30 @@
-const Stack = {
+const Queue = {
     maxsize: 10,
-    top: 0,
+    front: 0,
+    rear: 0,
     store: new Array(10).fill(""),
 
-    push: function(data) {
+    offer: function(data) {
         if(!this.full()) {
-            this.store[this.top] = data;
-            this.top++;
+            this.store[this.rear] = data;
+            this.rear = (this.rear+1) % this.maxsize;
+            console.log("front:"+this.front+",rear:"+this.rear);
         } else {
             alert("これ以上入りません");
         }
     },
 
-    pop: function() {
+    poll: function() {
         if(!this.empty()) {
-            this.store[this.top-1] = "";
-            this.top--;
+            this.front = (this.front+1) % this.maxsize;
+            console.log("front:"+this.front+",rear:"+this.rear);
         } else {
             alert("データがありません")
         }
     },
 
     full: function() {
-        if(this.top >= this.maxsize) {
+        if((this.rear+1) % this.maxsize == this.front) {        
             return true;
         } else {
             return false;
@@ -30,7 +32,7 @@ const Stack = {
     },
 
     empty: function() {
-        if(this.top <= 0) {
+        if(this.rear == this.front) {
             return true;
         } else {
             return false;

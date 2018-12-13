@@ -28,6 +28,7 @@
 
   </script>
   <script src="js/stack.js"></script>
+  <script src="js/queue.js"></script>
   <script src="js/main.js"></script>
   </head>
 <body>
@@ -40,9 +41,6 @@
           </ons-list-item>
           <ons-list-item onclick="fn.load('queue.html')" tappable>
             キュー
-          </ons-list-item>
-          <ons-list-item onclick="fn.load('circle_queue.html')" tappable>
-            円環キュー
           </ons-list-item>
         </ons-list>
       </ons-page>
@@ -63,21 +61,53 @@
         </div>
       </ons-toolbar>
       <div class="input_area">
-          <ons-input id="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
-          <ons-button id="input_button" class="button">IN</ons-button>
-          <ons-button id="output_button" class="button">OUT</ons-button>
+          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-button class="input_button button">IN</ons-button>
+          <ons-button class="output_button button">OUT</ons-button>
       </div>
-      <ons-list id="stack_list">
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
-          <ons-list-item><span class="stack_item"></span></ons-list-item>
+      <ons-list class="item_list">
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+      </ons-list>
+   </ons-page>
+  </ons-template>
+
+  <ons-template id="queue.html">
+    <ons-page id="queue_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          キュー
+        </div>
+      </ons-toolbar>
+      <div class="input_area">
+          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-button class="input_button button">IN</ons-button>
+          <ons-button class="output_button button">OUT</ons-button>
+      </div>
+      <ons-list class="item_list">
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
       </ons-list>
    </ons-page>
   </ons-template>
