@@ -8,13 +8,19 @@
 
 }
 
+.item_list ons-list-item ons-col:nth-child(even) {
+    font-weight: bold;
+}
+
+
+
 .input_area {
-    padding: 14px;
+    padding: 10px;
     text-align: center;
 }
 
 .input_area .text {
-    width: 160px;
+    width: 140px;
 }
 
 .input_area .button {

@@ -29,6 +29,12 @@
   </script>
   <script src="js/stack.js"></script>
   <script src="js/queue.js"></script>
+  <script src="js/array_list.js"></script>
+  <script src="js/node_list.js"></script>
+  <script src="js/sorted_list.js"></script>
+  <script src="js/binary_search_tree.js"></script>
+  <script src="js/heap.js"></script>
+  <script src="js/hash.js"></script>
   <script src="js/main.js"></script>
   </head>
 <body>
@@ -41,6 +47,24 @@
           </ons-list-item>
           <ons-list-item onclick="fn.load('queue.html')" tappable>
             キュー
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('array_list.html')" tappable>
+            リスト（配列）
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('node_list.html')" tappable>
+            リスト（ノード）
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('sorted_list.html')" tappable>
+            順序付きリスト
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('binary_search_tree.html')" tappable>
+            二分探索木
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('heap.html')" tappable>
+            ヒープ
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('hash.html')" tappable>
+            ハッシュ
           </ons-list-item>
         </ons-list>
       </ons-page>
@@ -112,5 +136,137 @@
    </ons-page>
   </ons-template>
 
+  <ons-template id="array_list.html">
+    <ons-page id="array_list_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          リスト（配列）
+        </div>
+      </ons-toolbar>
+
+      <div class="input_area">
+          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+      </div>
+      <div class="input_area">
+          <ons-button class="insert_button button">追加</ons-button>
+          <ons-button class="search_button button">検索</ons-button>
+          <ons-button class="delete_button button">削除</ons-button>
+      </div>
+      <ons-list class="item_list">
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+          <ons-list-item><span class="item"></span></ons-list-item>
+      </ons-list>
+
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="node_list.html">
+    <ons-page id="node_list_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          リスト（ノード）
+        </div>
+      </ons-toolbar>
+
+      <div class="input_area">
+          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+      </div>
+      <div class="input_area">
+          <ons-button class="insert_button button">追加</ons-button>
+          <ons-button class="search_button button">検索</ons-button>
+          <ons-button class="delete_button button">削除</ons-button>
+      </div>
+      <ons-list class="item_list">
+      </ons-list>
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="sorted_list.html">
+    <ons-page id="sorted_list_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          順序付きリスト
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="binary_search_tree.html">
+    <ons-page id="binary_search_tree_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          二分探索木
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="heap.html">
+    <ons-page id="heap_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          ヒープ
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="hash.html">
+    <ons-page id="hash_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          ハッシュ
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
 </body>
 </html>

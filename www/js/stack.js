@@ -17,7 +17,7 @@ const Stack = {
             this.store[this.top-1] = "";
             this.top--;
         } else {
-            alert("データがありません")
+            alert("データがありません");
         }
     },
 
