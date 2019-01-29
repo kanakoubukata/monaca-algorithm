@@ -1,11 +1,9 @@
 const Array_List = {
-    maxsize: 10,
     top: 0,
-    store: new Array(10).fill(""),
-    notfound: -1,
+    store: new Array(STORE_MAX_SIZE).fill(""),
 
     full: function() {
-        if(this.top >= this.maxsize) {
+        if(this.top >= STORE_MAX_SIZE) {
             return true;
         } else {
             return false;
@@ -32,16 +30,16 @@ const Array_List = {
         if(here !== this.top) {
             return here;
         } else {
-            return this.notfound;
+            return NOT_FOUND;
         }
     },
 
     delete: function(str) {
-        const find = this.search(str);
-        if(find !== this.notfound) {
+        const found = this.search(str);
+        if(found !== NOT_FOUND) {
             this.top--;
             let move;
-            for(move = find; move < this.top; move++) {
+            for(move = found; move < this.top; move++) {
                 this.store[move] = this.store[move+1];
             }
             this.store[this.top] = ""; 

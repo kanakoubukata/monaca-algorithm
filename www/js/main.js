@@ -1,4 +1,3 @@
-const notfound = -1;
 document.addEventListener("init", function(event) {
     const page = event.target;
     if(page.id === "stack_page") {        
@@ -80,7 +79,7 @@ document.addEventListener("init", function(event) {
             const input_data = page.querySelector('.input_data');
             if(input_data.value) {
                 let index = Array_List.search(input_data.value);
-                if(index === notfound) {
+                if(index === NOT_FOUND) {
                     ons.notification.alert(input_data.value + "は見つかりませんでした");
                 } else {
                     ons.notification.alert(index + "番目に見つかりました");
@@ -133,6 +132,47 @@ document.addEventListener("init", function(event) {
             const input_data = page.querySelector('.input_data');
             if(input_data.value) {
                 if(Node_List.delete(input_data.value)) {
+                    show();
+                    input_data.value = "";                
+                } else {
+                    ons.notification.alert(input_data.value + "は見つかりませんでした");
+                }
+            }
+        });
+        show();
+    } else if (page.id === "sorted_list_page") {
+        const show = function() {
+            const store = Sorted_List.store;
+            page.querySelectorAll(".item_list .item")
+            .forEach(function(item, index) {
+                item.textContent = index + "：" + store[index];
+            });
+        };
+        page.querySelector(".insert_button").addEventListener("click", function() {
+            const input_data = page.querySelector('.input_data');
+            if(input_data.value) {
+                if(Sorted_List.insert(input_data.value)) {
+                    show();
+                    input_data.value = "";
+                } else {
+                    ons.notification.alert("これ以上追加できません");
+                }
+            }
+        });
+        page.querySelector(".search_button").addEventListener("click", function() {
+            const input_data = page.querySelector('.input_data');
+            if(input_data.value) {
+                if(Sorted_List.binarySearch(input_data.value)) {
+                    ons.notification.alert(input_data.value + "を見つけました");
+                } else {
+                    ons.notification.alert(input_data.value + "は見つかりませんでした");
+                }
+            }
+        });
+        page.querySelector(".delete_button").addEventListener("click", function() {
+            const input_data = page.querySelector('.input_data');
+            if(input_data.value) {
+                if(Sorted_List.delete(input_data.value)) {
                     show();
                     input_data.value = "";                
                 } else {

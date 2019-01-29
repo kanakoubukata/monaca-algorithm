@@ -1,3 +1,7 @@
+.item_list {
+    margin-top: 20px;
+}
+
 .item_list ons-list-item:nth-child(odd) {
     background-color: lightblue;
 
@@ -15,12 +19,12 @@
 
 
 .input_area {
-    padding: 10px;
+    padding-top: 16px;
     text-align: center;
 }
 
 .input_area .text {
-    width: 140px;
+    width: 180px;
 }
 
 .input_area .button {

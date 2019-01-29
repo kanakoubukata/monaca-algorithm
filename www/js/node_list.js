@@ -17,30 +17,30 @@ const Node_List = {
 
     search: function(str) {
         let node = this.head;
-        let find = false;
+        let found = false;
         do {
             node = node.next;
             if(node.info === str) {
-                find = true;
+                found = true;
                 break;
             }
         } while(node.next !== null)
-        return find;
+        return found;
     },
 
     delete: function(str) {
         let prev;
         let node = this.head;
-        let find = false;
+        let found = false;
         do {
             prev = node;
             node = node.next;
             if(node.info === str) {
                 prev.next = node.next;
-                find = true;
+                found = true;
                 break;
             }
         } while(node.next !== null)
-        return find;
+        return found;
     }
 };

@@ -1,7 +1,6 @@
 const Stack = {
-    maxsize: 10,
     top: 0,
-    store: new Array(10).fill(""),
+    store: new Array(STORE_MAX_SIZE).fill(""),
 
     push: function(data) {
         if(!this.full()) {
@@ -22,7 +21,7 @@ const Stack = {
     },
 
     full: function() {
-        if(this.top >= this.maxsize) {
+        if(this.top >= STORE_MAX_SIZE) {
             return true;
         } else {
             return false;
