@@ -22,7 +22,7 @@
     background-color: #fafafa;
     border: solid 1px #ccc;
 }
-.info .count {
+.info span {
     font-weight: bold;
 }
 

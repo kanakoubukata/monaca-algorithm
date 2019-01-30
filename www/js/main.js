@@ -189,47 +189,21 @@ document.addEventListener("init", function(event) {
         
     } else if (page.id === "bubble_sort_page") {
         const chart_data = [65, 21, 59, 39, 80, 94, 26, 17, 55];
-		const ctx = page.querySelector('.canvas').getContext('2d');
-        const bar_chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                "labels": chart_data,
-                "datasets": [{
-                    "data": chart_data,
-                    "backgroundColor": ["red", "hotpink", "darkorange", "gold", "lawngreen", "green", "aqua", "blue", "blueviolet"],
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    xAxes: [{
-                        gridLines: {
-                            display:false
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            display: false
-                        },
-                        gridLines: {
-                            display:false
-                        }
-                    }]
-                },
-                responsive: true,
-                barPercentage: 1,
-                categoryPercentage: 1                
-            }
-        });  
+		const chart = new Plot(page, chart_data);
+
         page.querySelector(".start_button").addEventListener("click", function() {
-            const speed = page.querySelector('.speed_range').value;
-            const sorted_list = Bubble_Sort.sort(chart_data);
-            bar_chart.data.datasets[0].data = sorted_list.data;
-            bar_chart.data.labels = sorted_list.data;
-            bar_chart.update();
-            page.querySelector('.count').textContent = sorted_list.count;
+            const speed = 100 - parseInt(page.querySelector('.speed_range').value);
+            const sorted_list = Bubble_Sort.sort(chart_data.slice(), chart, speed);
+            //chart.update(sorted_list.data);
+            //page.querySelector('.compare_count').textContent = sorted_list.compare_count;
+            //page.querySelector('.swap_count').textContent = sorted_list.swap_count;
+        });      
+
+        page.querySelector(".reset_button").addEventListener("click", function() {
+            chart.update(chart_data);
+            page.querySelector('.speed_range').value = 50;
+            page.querySelector('.compare_count').textContent = 0;
+            page.querySelector('.swap_count').textContent = 0;
         });      
 
     } else if (page.id === "selection_sort_page") {

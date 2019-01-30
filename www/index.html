@@ -28,6 +28,7 @@
 
   </script>
   <script src="js/common.js"></script>
+  <script src="js/plot.js"></script>
   <script src="js/stack.js"></script>
   <script src="js/queue.js"></script>
   <script src="js/array_list.js"></script>
@@ -327,12 +328,15 @@
       </ons-toolbar>
 
       <div class="input_area">
-          <ons-row vertical-align="center" style="padding: 0 10px">
-              <ons-col width="30px"><ons-icon icon="md-walk" size="24px"></ons-icon></ons-col>
+          <ons-row vertical-align="center" style="width:270px;margin: 0 auto">
+              <ons-col width="30px"><ons-icon icon="md-walk" size="26px"></ons-icon></ons-col>
               <ons-col width="210px"><ons-range class="speed_range" value="50"></ons-range></ons-col>
-              <ons-col width="30px"><ons-icon icon="rocket" size="20px"></ons-icon></ons-col>
-              <ons-col><ons-button class="start_button button">開始</ons-button></ons-col>
+              <ons-col width="30px"><ons-icon icon="car" size="18px"></ons-icon></ons-col>
           </ons-row>
+      </div>
+      <div class="input_area">
+        <ons-button class="start_button button">開始</ons-button>
+        <ons-button class="reset_button button">戻す</ons-button>
       </div>
 
       <div class="canvas_area">
@@ -340,7 +344,8 @@
       </div>
 
       <div class="info">
-          比較回数：<span class="count">0</span>&nbsp;回
+          比較回数：<span class="compare_count">0</span>&nbsp;回<br>
+          交換回数：<span class="swap_count">0</span>&nbsp;回
       </div>
     </ons-page>
   </ons-template>
