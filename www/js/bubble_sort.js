@@ -1,5 +1,5 @@
 const Bubble_Sort = {
-    sort: function(data, speed) {
+    sort: function(data) {
         let tmp;
         let count = 0;
         for(let i = 1; i < data.length-1; i++) {
