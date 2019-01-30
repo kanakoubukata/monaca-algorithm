@@ -1,19 +1,42 @@
 const Bubble_Sort = {
-    sort: function(data, chart, speed) {
+    /* スピード調整機能なしのソースコード */
+    /*
+    sort: function(dataset) {
         let tmp;
         let compare_count = 0;
         let swap_count = 0;
-        let max_index = data.length-1;
+        let max_index = dataset.length-1;
         for(let i = 1; i < max_index; i++) {
             for(let j = max_index; j >= i; j--) {
-                if(data[j] < data[j-1]) {
-                    tmp = data[j];
-                    data[j] = data[j-1];
-                    data[j-1] = tmp;
+                if(dataset[j].data < dataset[j-1].data) {
+                    tmp = dataset[j];
+                    dataset[j] = dataset[j-1];
+                    dataset[j-1] = tmp;
+                    swap_count++;
+                }
+                compare_count++;
+            }
+        }
+        return {"dataset": dataset, "compare_count": compare_count, "swap_count": swap_count};
+    }
+    */
+
+    /* スピード調整機能ありのソースコード */
+    sort: function(dataset, plot, speed) {
+        let tmp;
+        let compare_count = 0;
+        let swap_count = 0;
+        let max_index = dataset.length-1;
+        for(let i = 1; i < max_index; i++) {
+            for(let j = max_index; j >= i; j--) {
+                if(dataset[j].data < dataset[j-1].data) {
+                    tmp = dataset[j];
+                    dataset[j] = dataset[j-1];
+                    dataset[j-1] = tmp;
                     
                     // チャートを更新
-                    const plot_data = data.slice();
-                    setTimeout(function(){chart.update(plot_data)}, speed*swap_count*10);
+                    const plot_dataset = dataset.slice();
+                    setTimeout(function(){plot.update(plot_dataset)}, speed*swap_count*10);
 
                     swap_count++;
                     compare_count++;
@@ -22,8 +45,8 @@ const Bubble_Sort = {
                     const plot_swap = swap_count;
                     const plot_compare = compare_count;
                     setTimeout(function(){
-                        chart.swap_count_update(plot_swap);
-                        chart.compare_count_update(plot_compare)
+                        plot.swap_count_update(plot_swap);
+                        plot.compare_count_update(plot_compare)
                     }, speed*swap_count*10);
                     
                 } else {
@@ -31,10 +54,10 @@ const Bubble_Sort = {
 
                     // 比較回数を更新
                     const plot_compare = compare_count;
-                    setTimeout(function(){chart.compare_count_update(plot_compare)}, speed*swap_count*10 + compare_count*10);                    
+                    setTimeout(function(){plot.compare_count_update(plot_compare)}, speed*swap_count*10 + compare_count*10);                    
                 }
             }
         }
-        return {"data": data, "compare_count": compare_count, "swap_count": swap_count};
+        return {"dataset": dataset, "compare_count": compare_count, "swap_count": swap_count};
     }
 };

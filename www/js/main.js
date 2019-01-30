@@ -188,24 +188,58 @@ document.addEventListener("init", function(event) {
     } else if (page.id === "hash_page") {
         
     } else if (page.id === "bubble_sort_page") {
-        const chart_data = [65, 21, 59, 39, 80, 94, 26, 17, 55];
-		const chart = new Plot(page, chart_data);
+        let dataset = [
+            { data: 65, color: "red" },
+            { data: 21, color: "hotpink" },
+            { data: 59, color: "darkorange" },
+            { data: 39, color: "gold" },
+            { data: 80, color: "lawngreen" },
+            { data: 94, color: "green" },
+            { data: 26, color: "aqua" },
+            { data: 17, color: "blue" },
+            { data: 55, color: "blueviolet" },
+        ];
+        let data = dataset.map(item => item.data);
+        let color = dataset.map(item => item.color);
+        let plot = new Plot(page, data, color);
 
+        /* スピード調整機能なしのソースコード */
+        /*
+        page.querySelector(".start_button").addEventListener("click", function() {
+            const sorted_list = Bubble_Sort.sort(dataset.slice());
+            plot.update(sorted_list.dataset);
+            page.querySelector('.compare_count').textContent = sorted_list.compare_count;
+            page.querySelector('.swap_count').textContent = sorted_list.swap_count;
+        });
+        */  
+
+        /* スピード調整機能ありのソースコード */
         page.querySelector(".start_button").addEventListener("click", function() {
             const speed = 100 - parseInt(page.querySelector('.speed_range').value);
-            const sorted_list = Bubble_Sort.sort(chart_data.slice(), chart, speed);
-            //chart.update(sorted_list.data);
-            //page.querySelector('.compare_count').textContent = sorted_list.compare_count;
-            //page.querySelector('.swap_count').textContent = sorted_list.swap_count;
-        });      
+            const sorted_list = Bubble_Sort.sort(dataset.slice(), plot, speed);
+        }); 
 
         page.querySelector(".reset_button").addEventListener("click", function() {
-            chart.update(chart_data);
-            page.querySelector('.speed_range').value = 50;
+            plot.update(dataset);
             page.querySelector('.compare_count').textContent = 0;
             page.querySelector('.swap_count').textContent = 0;
         });      
 
+        page.querySelector(".data_size").addEventListener("change", function(event) {
+            const size = parseInt(event.target.value);
+            dataset = [];
+            for(let i = 0; i < size; i++) {
+                dataset[i] = {
+                    data: Math.floor(Math.random() * 100) + 1,
+                    color: "#" + Math.floor(Math.random() * 256).toString(16).padStart(2,"0") + Math.floor(Math.random() * 256).toString(16).padStart(2,"0") + Math.floor(Math.random() * 256).toString(16).padStart(2,"0")
+                };
+            }
+            plot.destroy();
+            data = dataset.map(item => item.data);
+            color = dataset.map(item => item.color);
+            console.log(color);
+            plot = new Plot(page, data, color);
+        });      
     } else if (page.id === "selection_sort_page") {
 
     } else if (page.id === "insertion_sort_page") {

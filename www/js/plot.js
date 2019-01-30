@@ -1,15 +1,14 @@
 class Plot {
-    constructor(page, data) {
+    constructor(page, data, color) {
         this.page = page;
         this.ctx = page.querySelector('.canvas').getContext('2d');
-        this.color = ["red", "hotpink", "darkorange", "gold", "lawngreen", "green", "aqua", "blue", "blueviolet"];
         this.chart = new Chart(this.ctx, {
             type: 'bar',
             data: {
                 "labels": data,
                 "datasets": [{
                     "data": data,
-                    "backgroundColor": this.color,
+                    "backgroundColor": color,
                 }]
             },
             options: {
@@ -33,13 +32,17 @@ class Plot {
                 },
                 responsive: true,
                 barPercentage: 1,
-                categoryPercentage: 1                
+                categoryPercentage: 1,
+                animation: false             
             }
         }); 
     }
 
-    update(data) {
+    update(dataset) {
+        const data = dataset.map(item => item.data);
+        const color = dataset.map(item => item.color);
         this.chart.data.datasets[0].data = data;
+        this.chart.data.datasets[0].backgroundColor = color;
         this.chart.data.labels = data;
         this.chart.update();
     }
@@ -50,6 +53,12 @@ class Plot {
 
     swap_count_update(count) {
         this.page.querySelector('.swap_count').textContent = count;
+    }
+
+    destroy() {
+        if(this.chart) {
+            this.chart.destroy();
+        }
     }
 }
 

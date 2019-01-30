@@ -40,10 +40,14 @@
     width: 62px;
 }
 
-.input_area .speed_range {
+.speed_range {
     width: 200px;
 }
 
+.data_size {
+    padding: 0;
+    margin: 0 auto;
+}
 .canvas_area {
     margin-top: 20px;
     width: 100%;

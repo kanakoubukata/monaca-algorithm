@@ -326,13 +326,39 @@
           バブルソート
         </div>
       </ons-toolbar>
-
-      <div class="input_area">
+      <ons-list>
+        <ons-list-header>データ数</ons-list-header>
+        <ons-list-item>        
+          <ons-select class="data_size">
+            <option value="5">5個</option>
+            <option value="6">6個</option>
+            <option value="7">7個</option>
+            <option value="8">8個</option>
+            <option value="9" selected>9個</option>
+            <option value="10">10個</option>
+            <option value="11">11個</option>
+            <option value="12">12個</option>
+            <option value="13">13個</option>
+            <option value="14">14個</option>
+            <option value="15">15個</option>
+            <option value="16">16個</option>
+            <option value="17">17個</option>
+            <option value="18">18個</option>
+            <option value="19">19個</option>
+            <option value="20">20個</option>
+          </ons-select>
+        </ons-list-item>
+        <ons-list-header>表示スピード</ons-list-header>
+        <ons-list-item>        
           <ons-row vertical-align="center" style="width:270px;margin: 0 auto">
               <ons-col width="30px"><ons-icon icon="md-walk" size="26px"></ons-icon></ons-col>
               <ons-col width="210px"><ons-range class="speed_range" value="50"></ons-range></ons-col>
               <ons-col width="30px"><ons-icon icon="car" size="18px"></ons-icon></ons-col>
           </ons-row>
+        </ons-list-item>
+      </ons-list>
+      <div class="input_area">
+
       </div>
       <div class="input_area">
         <ons-button class="start_button button">開始</ons-button>
