@@ -6,7 +6,7 @@ const Bubble_Sort = {
         let compare_count = 0;
         let swap_count = 0;
         let max_index = dataset.length-1;
-        for(let i = 1; i < max_index; i++) {
+        for(let i = 1; i <= max_index; i++) {
             for(let j = max_index; j >= i; j--) {
                 if(dataset[j].data < dataset[j-1].data) {
                     tmp = dataset[j];
@@ -27,7 +27,7 @@ const Bubble_Sort = {
         let compare_count = 0;
         let swap_count = 0;
         let max_index = dataset.length-1;
-        for(let i = 1; i < max_index; i++) {
+        for(let i = 1; i <= max_index; i++) {
             for(let j = max_index; j >= i; j--) {
                 if(dataset[j].data < dataset[j-1].data) {
                     tmp = dataset[j];

@@ -206,6 +206,7 @@ document.addEventListener("init", function(event) {
         /* スピード調整機能なしのソースコード */
         /*
         page.querySelector(".start_button").addEventListener("click", function() {
+            event.target.disabled = true;
             const sorted_list = Bubble_Sort.sort(dataset.slice());
             plot.update(sorted_list.dataset);
             page.querySelector('.compare_count').textContent = sorted_list.compare_count;
@@ -215,17 +216,27 @@ document.addEventListener("init", function(event) {
 
         /* スピード調整機能ありのソースコード */
         page.querySelector(".start_button").addEventListener("click", function() {
+            page.querySelector(".start_button").disabled = true;
             const speed = 100 - parseInt(page.querySelector('.speed_range').value);
             const sorted_list = Bubble_Sort.sort(dataset.slice(), plot, speed);
+            page.querySelector(".reset_button").disabled = false;
         }); 
 
         page.querySelector(".reset_button").addEventListener("click", function() {
+            page.querySelector(".reset_button").disabled = true;
             plot.update(dataset);
             page.querySelector('.compare_count').textContent = 0;
             page.querySelector('.swap_count').textContent = 0;
+            page.querySelector(".start_button").disabled = false;
         });      
 
         page.querySelector(".data_size").addEventListener("change", function(event) {
+            plot.destroy();
+            page.querySelector(".start_button").disabled = false;
+            page.querySelector(".reset_button").disabled = true;
+            page.querySelector('.compare_count').textContent = 0;
+            page.querySelector('.swap_count').textContent = 0;
+
             const size = parseInt(event.target.value);
             dataset = [];
             for(let i = 0; i < size; i++) {
@@ -234,10 +245,8 @@ document.addEventListener("init", function(event) {
                     color: "#" + Math.floor(Math.random() * 256).toString(16).padStart(2,"0") + Math.floor(Math.random() * 256).toString(16).padStart(2,"0") + Math.floor(Math.random() * 256).toString(16).padStart(2,"0")
                 };
             }
-            plot.destroy();
             data = dataset.map(item => item.data);
             color = dataset.map(item => item.color);
-            console.log(color);
             plot = new Plot(page, data, color);
         });      
     } else if (page.id === "selection_sort_page") {
