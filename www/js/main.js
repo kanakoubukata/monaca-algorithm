@@ -206,11 +206,12 @@ document.addEventListener("init", function(event) {
         /* スピード調整機能なしのソースコード */
         /*
         page.querySelector(".start_button").addEventListener("click", function() {
-            event.target.disabled = true;
+            page.querySelector(".start_button").disabled = true;
             const sorted_list = Bubble_Sort.sort(dataset.slice());
             plot.update(sorted_list.dataset);
             page.querySelector('.compare_count').textContent = sorted_list.compare_count;
             page.querySelector('.swap_count').textContent = sorted_list.swap_count;
+            page.querySelector(".reset_button").disabled = false;
         });
         */  
 
