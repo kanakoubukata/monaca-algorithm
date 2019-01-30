@@ -36,6 +36,11 @@
   <script src="js/binary_search_tree.js"></script>
   <script src="js/heap.js"></script>
   <script src="js/hash.js"></script>
+  <script src="js/bubble_sort.js"></script>
+  <script src="js/selection_sort.js"></script>
+  <script src="js/insertion_sort.js"></script>
+  <script src="js/quick_sort.js"></script>
+  <script src="js/merge_sort.js"></script>
   <script src="js/main.js"></script>
   </head>
 <body>
@@ -67,6 +72,21 @@
           <ons-list-item onclick="fn.load('hash.html')" tappable>
             ハッシュ
           </ons-list-item>
+          <ons-list-item onclick="fn.load('bubble_sort.html')" tappable>
+            バブルソート
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('selection_sort.html')" tappable>
+            選択ソート
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('insertion_sort.html')" tappable>
+            挿入ソート
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('quick_sort.html')" tappable>
+            クイックソート
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('merge_sort.html')" tappable>
+            マージソート
+          </ons-list-item>
         </ons-list>
       </ons-page>
     </ons-splitter-side>
@@ -86,7 +106,7 @@
         </div>
       </ons-toolbar>
       <div class="input_area">
-          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-input class="input_data text" modifier="underbar" placeholder="データを入力"></ons-input>
       </div>
       <div class="input_area">
           <ons-button class="input_button button">IN</ons-button>
@@ -120,7 +140,7 @@
         </div>
       </ons-toolbar>
       <div class="input_area">
-          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-input class="input_data text" modifier="underbar" placeholder="データを入力"></ons-input>
       </div>
       <div class="input_area">
           <ons-button class="input_button button">IN</ons-button>
@@ -155,7 +175,7 @@
       </ons-toolbar>
 
       <div class="input_area">
-          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-input class="input_data text" modifier="underbar" placeholder="データを入力"></ons-input>
       </div>
       <div class="input_area">
           <ons-button class="insert_button button">追加</ons-button>
@@ -192,7 +212,7 @@
       </ons-toolbar>
 
       <div class="input_area">
-          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-input class="input_data text" modifier="underbar" placeholder="データを入力"></ons-input>
       </div>
       <div class="input_area">
           <ons-button class="insert_button button">追加</ons-button>
@@ -219,7 +239,7 @@
       </ons-toolbar>
 
       <div class="input_area">
-          <ons-input class="input_data" modifier="underbar" placeholder="データを入力" class="text"></ons-input>
+          <ons-input class="input_data text" modifier="underbar" placeholder="データを入力"></ons-input>
       </div>
       <div class="input_area">
           <ons-button class="insert_button button">追加</ons-button>
@@ -286,6 +306,106 @@
         </div>
         <div class="center">
           ハッシュ
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="bubble_sort.html">
+    <ons-page id="bubble_sort_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          バブルソート
+        </div>
+      </ons-toolbar>
+
+      <div class="input_area">
+          <ons-row vertical-align="center" style="padding: 0 10px">
+              <ons-col width="30px"><ons-icon icon="md-walk" size="24px"></ons-icon></ons-col>
+              <ons-col width="210px"><ons-range class="speed_range" value="50"></ons-range></ons-col>
+              <ons-col width="30px"><ons-icon icon="rocket" size="20px"></ons-icon></ons-col>
+              <ons-col><ons-button class="start_button button">開始</ons-button></ons-col>
+          </ons-row>
+      </div>
+
+      <div class="canvas_area">
+        <canvas class="canvas"></canvas>
+      </div>
+
+      <div class="info">
+          比較回数：<span class="count">0</span>&nbsp;回
+      </div>
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="selection_sort.html">
+    <ons-page id="selection_sort_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          選択ソート
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="insertion_sort.html">
+    <ons-page id="insertion_sort_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          挿入ソート
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="quick_sort.html">
+    <ons-page id="quick_sort_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          クイックソート
+        </div>
+      </ons-toolbar>
+
+
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="merge_sort.html">
+    <ons-page id="merge_sort_page">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          マージソート
         </div>
       </ons-toolbar>
 

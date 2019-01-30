@@ -16,6 +16,15 @@
     font-weight: bold;
 }
 
+.info {
+    margin: 10px;
+    padding: 16px;
+    background-color: #fafafa;
+    border: solid 1px #ccc;
+}
+.info .count {
+    font-weight: bold;
+}
 
 
 .input_area {
@@ -24,9 +33,23 @@
 }
 
 .input_area .text {
-    width: 180px;
+    width: 200px;
 }
 
 .input_area .button {
-    width: 56px;
+    width: 62px;
 }
+
+.input_area .speed_range {
+    width: 200px;
+}
+
+.canvas_area {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.canvas_area .canvas {
+    width: 100%;
+}
+
