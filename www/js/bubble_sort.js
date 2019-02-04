@@ -58,6 +58,5 @@ const Bubble_Sort = {
                 }
             }
         }
-        return {"dataset": dataset, "compare_count": compare_count, "swap_count": swap_count};
     }
 };

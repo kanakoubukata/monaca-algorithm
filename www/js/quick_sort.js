@@ -1,2 +1,2 @@
-// This is a JavaScript file
-
+const Quick_Sort = {
+};

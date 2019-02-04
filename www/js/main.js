@@ -187,7 +187,14 @@ document.addEventListener("init", function(event) {
         
     } else if (page.id === "hash_page") {
         
-    } else if (page.id === "bubble_sort_page") {
+    } else if (page.id.match(/^.+_sort_page$/)) {
+        const sort_obj = {
+            "bubble_sort_page": Bubble_Sort,
+            "selection_sort_page": Selection_Sort,
+            "insertion_sort_page": Insertion_Sort,
+            "quick_sort_page": Quick_Sort,
+            "merge_sort_page": Merge_Sort
+        };
         let dataset = [
             { data: 65, color: "red" },
             { data: 21, color: "hotpink" },
@@ -206,10 +213,12 @@ document.addEventListener("init", function(event) {
         page.querySelector(".start_button").addEventListener("click", function() {
             page.querySelector(".start_button").disabled = true;
             const speed = 100 - parseInt(page.querySelector('.speed_range').value);
-            const sorted_list = Bubble_Sort.sort(dataset.slice(), plot, speed);
-            plot.update(sorted_list.dataset);
-            page.querySelector('.compare_count').textContent = sorted_list.compare_count;
-            page.querySelector('.swap_count').textContent = sorted_list.swap_count;
+            const sorted_list = sort_obj[page.id].sort(dataset.slice(), plot, speed);
+            if(sorted_list) {
+                plot.update(sorted_list.dataset);
+                page.querySelector('.compare_count').textContent = sorted_list.compare_count;
+                page.querySelector('.swap_count').textContent = sorted_list.swap_count;
+            }
             page.querySelector(".reset_button").disabled = false;
         }); 
 
@@ -240,13 +249,5 @@ document.addEventListener("init", function(event) {
             color = dataset.map(item => item.color);
             plot = new Plot(page, data, color);
         });      
-    } else if (page.id === "selection_sort_page") {
-
-    } else if (page.id === "insertion_sort_page") {
-
-    } else if (page.id === "quick_sort_page") {
-
-    } else if (page.id === "merge_sort_page") {
-
-    }
+    } 
 });
