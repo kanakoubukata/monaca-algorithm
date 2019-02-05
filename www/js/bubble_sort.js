@@ -5,7 +5,7 @@ const Bubble_Sort = {
         let tmp;
         let compare_count = 0;
         let swap_count = 0;
-        let max_index = dataset.length-1;
+        let max_index = dataset.length - 1;
         for(let i = 1; i <= max_index; i++) {
             for(let j = max_index; j >= i; j--) {
                 if(dataset[j].data < dataset[j-1].data) {
@@ -26,7 +26,7 @@ const Bubble_Sort = {
         let tmp;
         let compare_count = 0;
         let swap_count = 0;
-        let max_index = dataset.length-1;
+        let max_index = dataset.length - 1;
         for(let i = 1; i <= max_index; i++) {
             for(let j = max_index; j >= i; j--) {
                 if(dataset[j].data < dataset[j-1].data) {
@@ -39,23 +39,16 @@ const Bubble_Sort = {
                     setTimeout(function(){plot.update(plot_dataset)}, speed*swap_count*10);
 
                     swap_count++;
-                    compare_count++;
 
-                    // 交換回数、比較回数を更新
+                    // 交換回数を更新
                     const plot_swap = swap_count;
-                    const plot_compare = compare_count;
-                    setTimeout(function(){
-                        plot.swap_count_update(plot_swap);
-                        plot.compare_count_update(plot_compare)
-                    }, speed*swap_count*10);
-                    
-                } else {
-                    compare_count++;
-
-                    // 比較回数を更新
-                    const plot_compare = compare_count;
-                    setTimeout(function(){plot.compare_count_update(plot_compare)}, speed*swap_count*10 + compare_count*10);                    
+                    setTimeout(function(){plot.swap_count_update(plot_swap)}, speed*swap_count*10);
                 }
+                compare_count++;
+
+                // 比較回数を更新
+                const plot_compare = compare_count;
+                setTimeout(function(){plot.compare_count_update(plot_compare)}, speed*swap_count*10 + compare_count*10);                    
             }
         }
     }
