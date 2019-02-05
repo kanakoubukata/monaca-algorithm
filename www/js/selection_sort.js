@@ -21,12 +21,7 @@ const Selection_Sort = {
             
             if(tmp_index > i) {
                 tmp_dataset = dataset[tmp_index];
-
-                // 最小値よりも大きい数値を後ろにずらす
-                for(let k = tmp_index-1; k >= i; k--) {
-                    dataset[k+1] = dataset[k];
-                }
-                
+                dataset[tmp_index] = dataset[i];
                 dataset[i] = tmp_dataset;   
                 swap_count++;
             }
@@ -60,12 +55,7 @@ const Selection_Sort = {
             
             if(tmp_index > i) {
                 tmp_dataset = dataset[tmp_index];
-
-                // 最小値よりも大きい数値を後ろにずらす
-                for(let k = tmp_index-1; k >= i; k--) {
-                    dataset[k+1] = dataset[k];
-                }
-                
+                dataset[tmp_index] = dataset[i];
                 dataset[i] = tmp_dataset;   
                 swap_count++;
 
