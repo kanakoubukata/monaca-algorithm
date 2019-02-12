@@ -7,14 +7,11 @@ const Selection_Sort = {
         let compare_count = 0;
         let swap_count = 0;
         let max_index = dataset.length - 1;
-        let min;
-        for(let i = 0; i <= max_index; i++) {
+        for(let i = 0; i < max_index; i++) {
             tmp_index = i;
-            min = dataset[i].data;
             for(let j = i + 1; j <= max_index; j++) {
-                if(dataset[j].data < min) {
+                if(dataset[j].data < dataset[tmp_index].data) {
                     tmp_index = j;
-                    min = dataset[j].data;
                  }
                 compare_count++;
             }
@@ -37,14 +34,11 @@ const Selection_Sort = {
         let compare_count = 0;
         let swap_count = 0;
         let max_index = dataset.length-1;
-        let min;
-        for(let i = 0; i <= max_index; i++) {
+        for(let i = 0; i < max_index; i++) {
             tmp_index = i;
-            min = dataset[i].data;
             for(let j = i + 1; j <= max_index; j++) {
-                if(dataset[j].data < min) {
+                if(dataset[j].data < dataset[tmp_index].data) {
                     tmp_index = j;
-                    min = dataset[j].data;
                  }
                 compare_count++;
 

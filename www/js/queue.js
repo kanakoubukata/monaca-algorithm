@@ -23,7 +23,7 @@ const Queue = {
     },
 
     full: function() {
-        if((this.rear+1) % STORE_MAX_SIZE == this.front) {        
+        if((this.rear+1) % STORE_MAX_SIZE === this.front) {        
             return true;
         } else {
             return false;
@@ -31,7 +31,7 @@ const Queue = {
     },
 
     empty: function() {
-        if(this.rear == this.front) {
+        if(this.rear === this.front) {
             return true;
         } else {
             return false;
